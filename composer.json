@@ -1,0 +1,39 @@
+{
+    "name": "wesol05/php-app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tomasz Wesolowski",
+            "email": "wesol05@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "phpunit .",
+        "static-check": [
+            "php-cs-fixer fix src/ --dry-run",
+            "phpmd src/ text cleancode,codesize,unusedcode,naming,design",
+            "phpstan analyse"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "8.0"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpmd/phpmd": "^2.10",
+        "phpstan/phpstan": "^0.12.98",
+        "friendsofphp/php-cs-fixer": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests"
+        }
+    }
+}
